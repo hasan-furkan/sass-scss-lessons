@@ -1,0 +1,18 @@
+$tema: (
+  "acik": #fff,
+  "koyu": #000,
+  "gri": #aaa,
+);
+$kalinlik: (
+  "i": 300,
+  "o": 400,
+  "k": 500,
+);
+
+body {
+  background-color: map-get($tema, acik);
+}
+h1 {
+  color: map-get($tema, koyu);
+  font-weight: map-get($map: $kalinlik, $key: k);
+}
