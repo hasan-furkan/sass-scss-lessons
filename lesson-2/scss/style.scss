@@ -1,0 +1,75 @@
+// @mixin icon($boyut, $yuvarlak:false){
+//     width: $boyut;
+//     height: $boyut;
+//     @if ($yuvarlak) {
+//         border-radius: 50%;
+//     }
+// }
+// .container{
+//     float: left;
+//     @include icon(40px,true);
+//     background-color: tomato;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+// }
+///örnek-2
+// @mixin kenarlık($yon, $tur, $renk ) {
+//     @if ($yon == "l") {
+//         border-left: 3px $tur $renk;
+//     }@else if($yon == "r"){
+//         border-right: 3px $tur $renk;
+//     }@else if($yon == "t"){
+//         border-top: 3px $tur $renk;
+//     }@else if($yon == "b"){
+//         border-bottom: 3px $tur $renk;
+//     }@else{
+//         border: 5px $tur $renk;
+//     }
+// }
+// .container{
+//     width: 300px;
+//     height: 100px;
+//     background-color: orange;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     @include kenarlık(r, solid,black)
+// }
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: orange;
+}
+.items {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  border: 1px solid red;
+}
+$color1: #f1c40f;
+$color2: #e67e22;
+$color3: #e74c3c;
+$color4: #2980b9;
+$color5: #2ecc71;
+$dizi: $color1, $color2, $color3, $color4, $color5;
+$dizi2: 1, 2, 3, 4, 5;
+// @for $i from 1 through 5{
+//     .item-#{$i}{
+//         width: 100px * $i;
+//         height: 30px;
+//         background-color: blueviolet;
+//         margin-bottom: 10px;
+//         background-color: nth($dizi, $i); // dixinini içindeki o elemanı sağla(nth)
+//     }
+// }
+//each
+@each $i in $dizi2 {
+  .item-#{$i} {
+    font-size: 10px * $i;
+  }
+}
